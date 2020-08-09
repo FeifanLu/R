@@ -185,11 +185,36 @@ my.date
 # %Y  Year (4 digit)
 
 as.Date("June,01,2002", format = "%B,%d,%Y")
-#transorm the timestamp
+#transform the timestamp
 #Portable operating system interface 
 as.POSIXct('11:02:03', format = '%H:%M:%S')
 
+
+#str string parse time
 help(strptime)
 strptime("11:02:03", format = "%H:%M:%S")
+
+#POSIXct calender time which stores seconds since UNIX epoch (+some other data),
+#POSIlct local time which stores a list of day, month, year, hour, minute, second, etc.
+
+date.hour=strptime("2011-03-27 01:30:00", "%Y-%m-%d %H:%M:%S")
+
+date=c("26/10/2016")
+
+time=c("19:51:30")
+
+day<-paste(date,"T", time)
+
+day.time1=as.POSIXct(day,format="%d/%m/%Y T %H:%M:%S",tz="Europe/Paris")
+
+day.time1
+
+day.time1$year
+
+day.time2=as.POSIXlt(day,format="%d/%m/%Y T %H:%M:%S",tz="Europe/Paris")
+
+day.time2
+
+day.time2$year
 
 
